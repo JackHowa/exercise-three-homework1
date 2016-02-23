@@ -39,6 +39,18 @@ function loopThroughData(schoolsData) {
 		var schoolName = schoolsData[i]["SCHOOL_NAME"];
 		var year = schoolsData[i]["YEAR"];
 		var gradPct = schoolsData[i]["GRADUATES_PCT"];
+		var gradPctBlack = schoolsData[i]["GRADUATES_BLACK_PCT"];
+
+		//was interested in changing the year briefly 
+		//however it's nice to show the history
+		//at the same time, you still have to scroll now. 
+		//So I ended up changing up including the 2011 onwards data 
+
+		//Was interested in some of the assumptions of the Douglass
+		// of the graduation rate. At the end of the lecture, we 
+		// talked about the composition of the school may have changed .
+		// This is tough data to look at. But it's good to investigate. 
+
 
 		//If graduation percent is less thatn 50%...
 		//We use the `<` operator to test for values less than 50%
@@ -51,15 +63,28 @@ function loopThroughData(schoolsData) {
 
 		var barWidth = gradPct * 10;
 
+		var barWidthBlack = gradPctBlack * 10;
+
 		//If the school name matches the one we're looking for, add some markup onto our page.
 		if (schoolName === "FREDERICK DOUGLASS HIGH") {
 
+			if (year > 2010) {
+
+
+			
 			//All I'm doing here is writing some markup. The markup is exactly the same each time...
 			//...except for three variables: the width of the bar (calculated above), the year and the graduation rate.
 			//So we fill those in each time through the loop.
 
 			//!! Added a class name for the year !!//
 			$(".chart").append(
+				"<div class='bar-item year"+year+"'>"+
+					"<div class='bar-black' style='width: "+barWidthBlack+"px'>"+year+"</div>"+
+					"<div class='val'>"+gradPctBlack+"%</div>"+
+				"</div>"	
+			);
+
+				$(".chart").append(
 				"<div class='bar-item year"+year+"'>"+
 					"<div class='bar' style='width: "+barWidth+"px'>"+year+"</div>"+
 					"<div class='val'>"+gradPct+"%</div>"+
@@ -69,6 +94,7 @@ function loopThroughData(schoolsData) {
 			//See the style.css document for CSS to make it pretty.
 		}
 
+	}
 
 	}
 

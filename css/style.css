@@ -1,11 +1,17 @@
 .chart {
-  height: 500px;
+  height: 350px;
 }
 
 .bar-item {
 	display: inline-block;
 	width: 100%;
 }
+
+/*.bar-item-black
+{
+	display: inline-block;
+	width: 50%;
+}*/
 
 .val {
 	float: left;
@@ -23,8 +29,24 @@
 	float: left;
 }
 
-
-/* ADDED CLASS NAME FOR 2015 TO MAKE IT RED */
-.bar-item.year2015 .bar {
-	background-color: red;
+.bar-black {
+	background-color: black;
+	margin-top: 1px;
+	/*margin-top: 15px;*/
+	/* want to separate the year comparison bars */
+	/*yet this caused the number percentages to be off, need to figure out that*/
+	outline: 1px solid white;
+	color: white;
+	padding: 4px;
+	float: left;
 }
+
+/* this was tough figuring out what color to make the black graduation rate */
+/* however making the general grey - like a combination of a lot of colors – and the students */
+/* who identified as black not "black" seemed kind of hiding from something. In the end
+
+
+/*/* ADDED CLASS NAME FOR 2015 TO MAKE IT RED */
+/*.bar-item.year2015 .bar {
+	background-color: red;
+}*/*/
